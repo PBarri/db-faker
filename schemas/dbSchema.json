@@ -1,0 +1,63 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Database",
+    "description": "A database to generate fake data",
+    "type": "object",
+    "properties": {
+        "name": {
+            "description": "The name of the database.",
+            "type": "string"
+        },
+        "locale": {
+            "description": "The locale in which the data will be generated.",
+            "type": "string"
+        },
+        "dbEngine": {
+            "description": "The database engine for which the data is being generated",
+            "type": "string",
+            "enum": ["mysql"]
+        },
+        "tables": {
+            "description": "The tables that are contained in the database.",
+            "type": "array",
+            "items": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "description": "The name of the table.",
+                            "type": "string"
+                        },
+                        "fields": {
+                            "description": "The description of each of the fields present in the table.",
+                            "type": "array",
+                            "items": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "description": "The name of the field.",
+                                            "type": "string"
+                                        },
+                                        "type": {
+                                            "description": "The data type of the field.",
+                                            "type": "string",
+                                            "enum": ["string, integer, numeric, date, time, timestamp, binary, boolean, uuid, inet, cidr, macaddr"]
+                                        }
+                                    },
+                                    "required": ["name", "type"],
+                                    "minItems": 1,
+                                    "uniqueItems": true
+                                }
+                            ]
+                        }
+                    },
+                    "required": ["name", "fields"],
+                    "minItems": 1,
+                    "uniqueItems": true
+                }
+            ]
+        }
+    },
+    "required": ["name", "dbEngine", "tables"]
+}

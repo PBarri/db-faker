@@ -3,9 +3,10 @@
 """Tests for `db_faker` package."""
 
 import pytest
+import logging
 
-from db_faker import db_faker
 from db_faker import cli
+from db_faker.commands.hello import Hello
 
 
 @pytest.fixture
@@ -24,9 +25,9 @@ def test_content(response):
     # assert 'GitHub' in BeautifulSoup(response.content).title.string
 
 
-def test_command_line_interface(capsys):
+def test_command_line_interface(caplog):
     """Test the CLI."""
-    result = cli.main()
-    captured = capsys.readouterr()
+    result = cli.main(argv=["hello"])
+    logs = caplog.record_tuples
     assert result == 0
-    assert 'Hello world!' in captured.out
+    assert (Hello.log.name, logging.INFO, "Hello world!") in logs

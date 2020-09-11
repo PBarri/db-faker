@@ -1,6 +1,6 @@
-========
-db_faker
-========
+==============
+Database faker
+==============
 
 
 .. image:: https://img.shields.io/pypi/v/db_faker.svg

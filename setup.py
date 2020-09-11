@@ -45,6 +45,9 @@ setup(
         'console_scripts': [
             'db_faker=db_faker.cli:main',
         ],
+        "db_faker.commands": [
+            "hello=db_faker.commands.hello:Hello"
+        ]
     },
     install_requires=requirements,
     license="MIT license",
