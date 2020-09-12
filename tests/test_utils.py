@@ -3,13 +3,12 @@
 """Tests for the utils module."""
 
 import pytest
-import logging
-import db_faker.utils as Utils
 
-from pathlib import Path
+from db_faker.lib import utils
+
 
 # Get the absolute path of the current directory
-current_absolute_path = Utils.get_root_path() / 'tests'
+current_absolute_path = utils.get_root_path() / 'tests'
 
 
 @pytest.mark.parametrize("path, expected", [
@@ -22,6 +21,6 @@ def test_is_file(path: str, expected):
     Tests files exists in unix platforms
     """
     # str_path = str(path)
-    file_exists = Utils.file_exists(path)
+    file_exists = utils.file_exists(path)
 
     assert file_exists == expected

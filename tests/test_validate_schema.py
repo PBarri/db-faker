@@ -4,9 +4,7 @@
 Unit tests for ValidateSchema command
 """
 
-import pytest
-
-from db_faker.utils import get_root_path
+from db_faker.lib.utils import get_root_path
 from db_faker.commands.validate_schema import ValidateSchema
 from db_faker.cli import DatabaseFakerApp
 
