@@ -43,10 +43,12 @@ setup(
     description="CLI application that handles the creation of fake data to databases",
     entry_points={
         'console_scripts': [
+            'db_faker_click=db_faker.cli_click:cli',
             'db_faker=db_faker.cli:main',
         ],
         "db_faker.commands": [
-            "hello=db_faker.commands.hello:Hello"
+            "hello=db_faker.commands.hello:Hello",
+            "validate-schema=db_faker.commands.validate_schema:ValidateSchema"
         ]
     },
     install_requires=requirements,

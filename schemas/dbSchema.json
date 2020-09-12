@@ -42,7 +42,7 @@
                                         "type": {
                                             "description": "The data type of the field.",
                                             "type": "string",
-                                            "enum": ["string, integer, numeric, date, time, timestamp, binary, boolean, uuid, inet, cidr, macaddr"]
+                                            "enum": ["string", "integer", "numeric", "date", "time", "timestamp", "binary", "bool", "uuid", "inet", "cidr", "macaddr"]
                                         }
                                     },
                                     "required": ["name", "type"],
