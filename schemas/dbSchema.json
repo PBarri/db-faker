@@ -10,7 +10,8 @@
         },
         "locale": {
             "description": "The locale in which the data will be generated.",
-            "type": "string"
+            "type": "string",
+            "enum": ["es_ES", "en_GB", "it_IT", "fr_FR"]
         },
         "dbEngine": {
             "description": "The database engine for which the data is being generated",
@@ -42,7 +43,16 @@
                                         "type": {
                                             "description": "The data type of the field.",
                                             "type": "string",
-                                            "enum": ["string", "integer", "numeric", "date", "time", "timestamp", "binary", "bool", "uuid", "inet", "cidr", "macaddr"]
+                                            "enum": ["username", "name", "address", "creditcard", "company", "phone", "email", "vehicle_license", "iban", "color",
+                                                "string", "integer", "numeric", "date", "time", "timestamp", "binary", "bool", "uuid", "inet", "cidr", "macaddr"]
+                                        },
+                                        "minValue": {
+                                            "description": "The minimum possible value. Only checked in integer values",
+                                            "type": "integer"
+                                        },
+                                        "maxValue": {
+                                            "description": "The maximum possible value. Only checked in integer values",
+                                            "type": "integer"
                                         }
                                     },
                                     "required": ["name", "type"],
@@ -50,6 +60,13 @@
                                     "uniqueItems": true
                                 }
                             ]
+                        },
+                        "rows": {
+                            "description": "The number of rows that will be generated for this table. Defaults to 50",
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 300,
+                            "default": 50
                         }
                     },
                     "required": ["name", "fields"],

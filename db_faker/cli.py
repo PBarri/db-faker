@@ -1,5 +1,6 @@
 """Console script for db_faker."""
 import sys
+
 from cliff.app import App
 from cliff.commandmanager import CommandManager
 

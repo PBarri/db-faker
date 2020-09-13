@@ -3,8 +3,7 @@ import json
 import db_faker.lib.utils as utils
 
 from cliff.command import Command
-from jsonschema import validate, ValidationError
-from db_faker.lib.schema import SchemaValidationResult, validate_schema
+from db_faker.lib.schema import validate_schema
 
 
 class ValidateSchema(Command):
@@ -26,8 +25,8 @@ class ValidateSchema(Command):
 
     def take_action(self, parsed_args):
         self.log.debug("Selected schema: %s", parsed_args.schema)
-        schema = parsed_args.schema
 
+        schema = parsed_args.schema
         schema_file = utils.get_file_abs_path(schema)
 
         if schema_file.exists():
