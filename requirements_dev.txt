@@ -8,3 +8,4 @@ Sphinx
 twine
 pytest
 pytest-runner
+sphinx-rtd-theme
