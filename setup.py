@@ -1,9 +1,13 @@
 #!/usr/bin/env python
 
 """The setup script."""
+import os
+import sys
 
 from setuptools import setup, find_packages
-import os
+from setuptools.command.install import install
+
+VERSION = '0.1.3'
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -25,9 +29,25 @@ setup_requirements = ['pytest-runner', ]
 # Requirements for testing the package
 test_requirements = ['pytest>=6', ]
 
+
+# https://circleci.com/blog/continuously-deploying-python-packages-to-pypi-with-circleci/
+class VerifyVersionCommand(install):
+    """Custom command to verify that the git tag matches our version"""
+    description = 'verify that the git tag matches our version'
+
+    def run(self):
+        tag = os.getenv('CIRCLE_TAG')
+
+        if tag != VERSION:
+            info = "Git tag: {0} does not match the version of this app: {1}".format(
+                tag, VERSION
+            )
+            sys.exit(info)
+
+
+# Setup function
 setup(
     author="Pablo Barrientos",
-    author_email='pablo.barrientos.13@gmail.com',
     python_requires='>=3.5',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
@@ -53,15 +73,18 @@ setup(
     install_requires=requirements,
     license="MIT license",
     long_description=readme + '\n\n' + history,
-    long_description_content_type="text/markdown",
+    long_description_content_type="text/x-rst",
     include_package_data=True,
-    keywords='db_faker',
+    keywords='db_faker test databases data',
     name='db_faker',
     packages=find_packages(include=['db_faker', 'db_faker.*']),
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/PBarri/db_faker',
-    version='0.1.0',
+    version=VERSION,
     zip_safe=False,
+    cmd_class={
+        'verify': VerifyVersionCommand
+    }
 )

@@ -8,7 +8,6 @@ Welcome to db_faker's documentation!
    readme
    installation
    usage
-   modules
    contributing
    authors
    history

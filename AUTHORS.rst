@@ -5,7 +5,7 @@ Credits
 Development Lead
 ----------------
 
-* Pablo Barrientos <pablo.barrientos.13@gmail.com>
+* Pablo Barrientos <https://pbarri.github.io>
 
 Contributors
 ------------

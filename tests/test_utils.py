@@ -20,7 +20,6 @@ def test_is_file(path: str, expected):
     """
     Tests files exists in unix platforms
     """
-    # str_path = str(path)
     file_exists = utils.file_exists(path)
 
     assert file_exists == expected
