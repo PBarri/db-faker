@@ -33,4 +33,3 @@ def test_generate_data():
     cmd = GenerateData(app, ["-s", str(valid_schema), "-o", "console"])
     parser = cmd.get_parser("generate-data")
     cmd.take_action(parser.parse_args(cmd.app_args))
-
