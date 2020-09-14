@@ -44,7 +44,7 @@
                                             "description": "The data type of the field.",
                                             "type": "string",
                                             "enum": ["username", "name", "address", "creditcard", "company", "phone", "email", "vehicle_license", "iban", "color",
-                                                "string", "integer", "numeric", "date", "time", "timestamp", "binary", "bool", "uuid", "inet", "cidr", "macaddr"]
+                                                "string", "integer", "numeric", "date", "time", "timestamp", "binary", "bool", "uuid", "inet", "macaddr"]
                                         },
                                         "minValue": {
                                             "description": "The minimum possible value. Only checked in integer values",

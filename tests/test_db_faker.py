@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
 """
-Unit tests for ValidateSchema command
+Unit tests for the database faker app
 """
 
 from db_faker.lib.utils import get_root_path
 from db_faker.commands.validate_schema import ValidateSchema
+from db_faker.commands.generate_data import GenerateData
 from db_faker.cli import DatabaseFakerApp
 
 app = DatabaseFakerApp()
@@ -25,3 +26,11 @@ def test_valid_schema():
     cmd = ValidateSchema(app, ["-s", str(valid_schema)])
     parser = cmd.get_parser("validate-schema")
     cmd.take_action(parser.parse_args(cmd.app_args))
+
+
+def test_generate_data():
+    """Checks that data generation is working fine"""
+    cmd = GenerateData(app, ["-s", str(valid_schema), "-o", "console"])
+    parser = cmd.get_parser("generate-data")
+    cmd.take_action(parser.parse_args(cmd.app_args))
+

@@ -13,7 +13,7 @@ class ValidateSchema(Command):
     def __init__(self, app, app_args):
         super(ValidateSchema, self).__init__(app, app_args, cmd_name="validate-schema")
         self.log = logging.getLogger(__name__)
-        schema_path = utils.get_root_path() / 'schemas' / 'dbSchema.json'
+        schema_path = utils.get_root_path() / 'db_faker' / 'schemas' / 'dbSchema.json'
         with open(schema_path) as path:
             self.json_schema = json.load(path)
 

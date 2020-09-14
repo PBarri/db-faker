@@ -28,7 +28,7 @@ class GenerateData(Command):
     def __init__(self, app, app_args):
         super(GenerateData, self).__init__(app, app_args, cmd_name="generate-data")
         self.log = logging.getLogger(__name__)
-        schema_path = utils.get_root_path() / 'schemas' / 'dbSchema.json'
+        schema_path = utils.get_root_path() / 'db_faker' / 'schemas' / 'dbSchema.json'
         with open(schema_path) as path:
             self.json_schema = json.load(path)
 
@@ -102,7 +102,7 @@ def generate_row_data(fake: Faker, db_name: str, table_name: str, fields: list) 
     for field in fields:
         sql_insert += field["name"] + ","
         value = generate_fake_data(fake, field["type"])
-        sql_values += value + ","
+        sql_values += f"\"{value}\","
 
     # Remove last comma and end statement
     sql_insert = sql_insert[:-1] + ")"
@@ -124,13 +124,13 @@ def generate_fake_data(fake: Faker, value_type: str):
         "iban": fake.iban(),
         "color": fake.color_name(),
         "string": fake.text(),
-        "integer": fake.random_int(max=99999),
-        "numeric": fake.pyfloat(),
+        "integer": str(fake.random_int(max=99999)),
+        "numeric": str(fake.pyfloat()),
         "date": fake.date(),
         "time": fake.time(),
         "timestamp": fake.iso8601(),
-        "binary": fake.binary(length=64),
-        "bool": fake.boolean(),
+        "binary": str(fake.binary(length=64)),
+        "bool": str(fake.boolean()),
         "uuid": fake.uuid4(),
         "inet": fake.ipv4(),
         "macaddr": fake.mac_address()
