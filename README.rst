@@ -6,8 +6,8 @@ Database faker
 .. image:: https://img.shields.io/pypi/v/db_faker.svg
         :target: https://pypi.python.org/pypi/db_faker
 
-.. image:: https://img.shields.io/travis/PBarri/db_faker.svg
-        :target: https://travis-ci.com/PBarri/db_faker
+.. image:: https://circleci.com/gh/PBarri/db-faker.svg?style=shield
+        :target: https://app.circleci.com/pipelines/github/PBarri/db-faker
 
 .. image:: https://sonarcloud.io/api/project_badges/measure?project=PBarri_db-faker&metric=alert_status
         :target: https://sonarcloud.io/dashboard?id=PBarri_db-faker
