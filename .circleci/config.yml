@@ -7,7 +7,10 @@ jobs:
   clean:
     executor: python/default
     steps:
-      - run: make clean
+      - run:
+          command: |
+            make clean
+          name: Clean
   build:
     executor: python/default
     steps:
@@ -18,7 +21,7 @@ jobs:
       - python/install-packages:
           args: '-r requirements_dev.txt'
           pkg-manager: pip
-      - run: 
+      - run:
           command: |
             make lint
             make test
