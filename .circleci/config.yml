@@ -1,0 +1,38 @@
+version: 2.1
+
+orbs:
+  python: circleci/python@1.0.0
+
+jobs:
+  test:
+    executor: python/default
+    steps:
+      - checkout
+      - python/install-packages:
+          args: '-r requirements.txt'
+          pkg-manager: pip
+      - python/install-packages:
+          args: '-r requirements_dev.txt'
+          pkg-manager: pip
+      -   run:
+            command: |
+              make lint
+              make test
+            name: Test
+  build:
+    executor: python/default
+    steps:
+      - checkout
+      - python/dist
+  publish:
+    executor: python/default
+    steps:
+      - checkout
+      - python/dist
+      - run: make release
+
+workflows:
+  main:
+    jobs:
+      - test
+      - build
