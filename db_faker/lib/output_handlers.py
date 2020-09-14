@@ -30,6 +30,7 @@ class ConsoleHandler(OutputHandler):
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
+        # Loggers do not need to be closed
         pass
 
     def handle(self, output: str):

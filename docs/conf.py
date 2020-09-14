@@ -49,6 +49,7 @@ master_doc = 'index'
 project = 'db_faker'
 copyright = "2020, Pablo Barrientos"
 author = "Pablo Barrientos"
+title = "db_faker Documentation"
 
 # The version info for the project you're documenting, acts as replacement
 # for |version| and |release|, also used in various other places throughout
@@ -128,7 +129,7 @@ latex_elements = {
 # [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'db_faker.tex',
-     'db_faker Documentation',
+     title,
      'Pablo Barrientos', 'manual'),
 ]
 
@@ -139,7 +140,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     (master_doc, 'db_faker',
-     'db_faker Documentation',
+     title,
      [author], 1)
 ]
 
@@ -151,7 +152,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     (master_doc, 'db_faker',
-     'db_faker Documentation',
+     title,
      author,
      'db_faker',
      'One line description of project.',
