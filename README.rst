@@ -3,8 +3,8 @@ Database faker
 ==============
 
 
-.. image:: https://img.shields.io/pypi/v/db_faker.svg
-        :target: https://pypi.python.org/pypi/db_faker
+.. image:: https://img.shields.io/pypi/v/db-faker.svg
+        :target: https://pypi.python.org/pypi/db-faker
 
 .. image:: https://circleci.com/gh/PBarri/db-faker.svg?style=shield
         :target: https://app.circleci.com/pipelines/github/PBarri/db-faker

@@ -7,7 +7,7 @@ import sys
 from setuptools import setup, find_packages
 from setuptools.command.install import install
 
-VERSION = '0.1.3'
+VERSION = '0.1.0'
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -81,7 +81,7 @@ setup(
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
-    url='https://github.com/PBarri/db_faker',
+    url='https://github.com/PBarri/db-faker',
     version=VERSION,
     zip_safe=False,
     cmd_class={
