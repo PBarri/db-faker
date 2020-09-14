@@ -4,14 +4,7 @@ orbs:
   python: circleci/python@1.0.0
 
 jobs:
-  clean:
-    executor: python/default
-    steps:
-      - run:
-          command: |
-            make clean-build
-          name: Clean
-  build:
+  test:
     executor: python/default
     steps:
       - checkout
@@ -21,11 +14,15 @@ jobs:
       - python/install-packages:
           args: '-r requirements_dev.txt'
           pkg-manager: pip
-      - run:
-          command: |
-            make lint
-            make test
-          name: Test
+      -   run:
+            command: |
+              make lint
+              make test
+            name: Test
+  build:
+    executor: python/default
+    steps:
+      - checkout
       - python/dist
   publish:
     executor: python/default
@@ -37,5 +34,5 @@ jobs:
 workflows:
   main:
     jobs:
-      - clean
+      - test
       - build
