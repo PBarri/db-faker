@@ -9,7 +9,7 @@ jobs:
     steps:
       - run:
           command: |
-            make clean
+            make clean-build
           name: Clean
   build:
     executor: python/default
